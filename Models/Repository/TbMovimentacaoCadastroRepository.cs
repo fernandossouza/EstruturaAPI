@@ -19,6 +19,22 @@ namespace EstruturaAPI.Models.Repository
             stringConnection = _configuration.GetConnectionString("EstruturaConnection");
         }
 
+        public async Task<IEnumerable<TbMovimentacaoCadastro>> GetMovimentacao()
+        {
+            IEnumerable<TbMovimentacaoCadastro> movimentacaoList;
+            string sSql = string.Empty;
+            sSql = "SELECT * ";
+            sSql = sSql + " FROM [SPI_TB_MOVIMENTACAO_CADASTRO] ";
+            sSql = sSql + " ORDER BY [dataCriacao] DESC ";
+
+            
+            using(IDbConnection db = new SqlConnection(stringConnection)){                
+               
+                movimentacaoList = await db.QueryAsync<TbMovimentacaoCadastro>(sSql);
+            }
+                return movimentacaoList;
+        }
+
         public async Task<TbMovimentacaoCadastro> InserirMovimentacao(TbMovimentacaoCadastro movimentacao)
         {
             IEnumerable<long> insertRow;

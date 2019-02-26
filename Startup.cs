@@ -30,11 +30,13 @@ namespace EstruturaAPI
             // Services
             services.AddTransient<ILocalizacaoService,LocalizacaoService>();
             services.AddTransient<IEstruturaService,EstruturaService>();
+            services.AddTransient<IMovimentacaoService,MovimentacaoService>();
 
             //Repository
             services.AddTransient<TbLocalizacaoContainerRepository,TbLocalizacaoContainerRepository>();
             services.AddTransient<TbEstruturaContainerRepository,TbEstruturaContainerRepository>();
             services.AddTransient<TbEstruturaBandejaRepository,TbEstruturaBandejaRepository>();
+            services.AddTransient<TbMovimentacaoCadastroRepository,TbMovimentacaoCadastroRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
