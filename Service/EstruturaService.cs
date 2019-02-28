@@ -49,6 +49,9 @@ namespace EstruturaAPI.Service
 
             container = await _TbEstruturaContainerRepository.GetEstrutura(rfid);
 
+            if(container != null)
+                container.bandejas =  await GetBandejaListPorContainer(container.id);
+
             return container;
         }
     }

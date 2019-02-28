@@ -25,6 +25,8 @@ namespace EstruturaAPI.Models
         public long usuarioId{get;set;}
         [Required]
         public string usuarioNome{get;set;}
+        [Required]
+        public bool movimentacaoVirtual{get;set;}
         public bool flagMigrado{get;set;}
         public bool flagConcluido{get;set;}
         public DateTime dataCriacao{get;set;}

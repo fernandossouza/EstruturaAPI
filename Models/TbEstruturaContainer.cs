@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace EstruturaAPI.Models
 {
@@ -16,5 +17,6 @@ namespace EstruturaAPI.Models
         public string classificacao{get;set;}
         public int qtdBandejas{get;set;}
         public int qtdMudas{get;set;}
+        public IEnumerable<TbEstruturaBandeja> bandejas{get;set;}
     }
 }
