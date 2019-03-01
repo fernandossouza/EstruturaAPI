@@ -1,3 +1,5 @@
+using System;
+
 namespace EstruturaAPI.Models
 {
     public class TbEstruturaBandeja
@@ -13,6 +15,7 @@ namespace EstruturaAPI.Models
         public string arranjo{get;set;}
         public string classificacao{get;set;}
         public string responsavelEstaqueamento{get;set;}
+        public DateTime dataEstaqueamento{get;set;}
         public int idade{get;set;}
         public long containerId{get;set;}
         public int ordem{get;set;}

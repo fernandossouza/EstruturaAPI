@@ -54,9 +54,28 @@ namespace EstruturaAPI.Controllers
             }
         }
 
+        // GET api/estrutura/bandeja
+        [HttpGet("Bandeja/")]
+        public async Task<IActionResult> GetEstruturaBandeja()
+        {
+            try
+            {
+                var bandeja = await _EstruturaService.GetBandejaAll();
+                
+                if(bandeja != null)
+                    return Ok(bandeja);
+                else
+                    return NotFound();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
         // GET api/estrutura/bandeja/1
         [HttpGet("Bandeja/{rfid}")]
-        public async Task<IActionResult> GetEstruturaBandeja(string rfid)
+        public async Task<IActionResult> GetEstruturaBandejaRfid(string rfid)
         {
             try
             {
@@ -74,7 +93,7 @@ namespace EstruturaAPI.Controllers
         }
 
         // GET api/localizacao/bandeja/1
-        [HttpGet("Bandeja/")]
+        [HttpGet("Bandeja/Container")]
         public async Task<IActionResult> GetLocalizacaoBandeja([FromQuery] long containerId)
         {
             try

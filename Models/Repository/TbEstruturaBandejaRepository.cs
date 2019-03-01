@@ -18,6 +18,22 @@ namespace EstruturaAPI.Models.Repository
             stringConnection = _configuration.GetConnectionString("EstruturaConnection");
         }
 
+        public async Task<IEnumerable<TbEstruturaBandeja>> GetEstruturaAll()
+        {
+            IEnumerable<TbEstruturaBandeja> bandeja;
+            string sSql = string.Empty;
+            sSql = "SELECT * ";
+            sSql = sSql + " FROM [SPI_TB_ESTRUTURA_BANDEJA] ";
+            sSql = sSql + " WHERE [lote] IS NOT NULL";
+
+            
+            using(IDbConnection db = new SqlConnection(stringConnection)){                
+               
+                bandeja = await db.QueryAsync<TbEstruturaBandeja>(sSql);
+            }
+                return bandeja;
+        }
+
         public async Task<TbEstruturaBandeja> GetEstrutura(string rfid)
         {
             TbEstruturaBandeja bandeja;

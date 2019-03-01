@@ -13,6 +13,9 @@ namespace EstruturaAPI.Models
         public string cor{get;set;}
         public long cloneId{get;set;}
         public string clone{get;set;}
+        public int qtdBandejas{get;set;}
+        public int qtdMudas{get;set;}
+        public string arranjo{get;set;}
         public long linhaId{get;set;} 
         public TbLocalizacaoLinha linha{get;set;}
     }

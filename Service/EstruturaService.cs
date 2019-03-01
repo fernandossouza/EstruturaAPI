@@ -63,5 +63,14 @@ namespace EstruturaAPI.Service
 
             return container;
         }
+
+        public async Task<IEnumerable<TbEstruturaBandeja>> GetBandejaAll()
+        {
+            IEnumerable<TbEstruturaBandeja> bandejaList;
+
+            bandejaList = await _TbEstruturaBandejaRepository.GetEstruturaAll();
+
+            return bandejaList;
+        }
     }
 }

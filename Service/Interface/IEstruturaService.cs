@@ -8,6 +8,7 @@ namespace EstruturaAPI.Service.Interface
     {
          Task<IEnumerable<TbEstruturaContainer>> GetContainerAll();
          Task<TbEstruturaContainer> GetContainer(string rfid);
+         Task<IEnumerable<TbEstruturaBandeja>> GetBandejaAll();
          Task<TbEstruturaBandeja> GetBandeja(string rfid);
          Task<IEnumerable<TbEstruturaBandeja>> GetBandejaListPorContainer(long containerId);
     }
