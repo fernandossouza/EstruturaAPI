@@ -16,9 +16,28 @@ namespace EstruturaAPI.Controllers
             _EstruturaService = estruturaService;
         }
 
-        // GET api/localizacao/container/1
+        // GET api/estrutura/container
+        [HttpGet("Container/")]
+        public async Task<IActionResult> GetEstruturaContainer()
+        {
+            try
+            {
+                var container = await _EstruturaService.GetContainerAll();
+                
+                if(container != null)
+                    return Ok(container);
+                else
+                    return NotFound();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        // GET api/estrutura/container/1
         [HttpGet("Container/{rfid}")]
-        public async Task<IActionResult> GetLocalizacaoContainer(string rfid)
+        public async Task<IActionResult> GetEstruturaContainerRfid(string rfid)
         {
             try
             {
@@ -35,9 +54,9 @@ namespace EstruturaAPI.Controllers
             }
         }
 
-        // GET api/localizacao/bandeja/1
+        // GET api/estrutura/bandeja/1
         [HttpGet("Bandeja/{rfid}")]
-        public async Task<IActionResult> GetLocalizacaoBandeja(string rfid)
+        public async Task<IActionResult> GetEstruturaBandeja(string rfid)
         {
             try
             {

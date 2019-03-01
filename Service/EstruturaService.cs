@@ -17,6 +17,15 @@ namespace EstruturaAPI.Service
             _TbEstruturaBandejaRepository = tbEstruturaBandejaRepository;
         }
 
+        public async Task<IEnumerable<TbEstruturaContainer>> GetContainerAll()
+        {
+            IEnumerable<TbEstruturaContainer> containerList;
+
+            containerList = await _TbEstruturaContainerRepository.GetEstrutura();
+
+            return containerList;
+        }
+
         public async Task<TbEstruturaBandeja> GetBandeja(string rfid)
         {
             if(string.IsNullOrWhiteSpace(rfid))
