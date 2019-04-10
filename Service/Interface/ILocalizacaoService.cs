@@ -7,5 +7,6 @@ namespace EstruturaAPI.Service.Interface
     public interface ILocalizacaoService
     {
          Task<IEnumerable<TbLocalizacaoContainer>> GetContainer();
+         Task<IEnumerable<TbLocalizacaoBandeja>> GetBandeja();
     }
 }

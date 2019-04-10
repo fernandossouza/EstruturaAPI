@@ -9,9 +9,11 @@ namespace EstruturaAPI.Service
     public class LocalizacaoService : ILocalizacaoService
     {
         private readonly TbLocalizacaoContainerRepository _TbLocalizacaoContainerRepository;
-        public LocalizacaoService(TbLocalizacaoContainerRepository tbLocalizacaoContainerRepository)
+        private readonly TbLocalizacaoBandejaRepository _TbLocalizacaoBandejaRepository;
+        public LocalizacaoService(TbLocalizacaoContainerRepository tbLocalizacaoContainerRepository,TbLocalizacaoBandejaRepository tbLocalizacaoBandejaRepository)
         {
             _TbLocalizacaoContainerRepository = tbLocalizacaoContainerRepository;
+            _TbLocalizacaoBandejaRepository = tbLocalizacaoBandejaRepository;
         }
         public async Task<IEnumerable<TbLocalizacaoContainer>> GetContainer()
         {
@@ -20,6 +22,15 @@ namespace EstruturaAPI.Service
             containerList = await _TbLocalizacaoContainerRepository.GetLocalizacao();
             
             return containerList;
+        }
+
+        public async Task<IEnumerable<TbLocalizacaoBandeja>> GetBandeja()
+        {
+            IEnumerable<TbLocalizacaoBandeja> bandejaList;
+
+            bandejaList = await _TbLocalizacaoBandejaRepository.GetLocalizacao();
+            
+            return bandejaList;
         }
     }
 }

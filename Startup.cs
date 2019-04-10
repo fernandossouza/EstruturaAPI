@@ -45,6 +45,7 @@ namespace EstruturaAPI
             services.AddTransient<TbMovimentacaoCadastroRepository,TbMovimentacaoCadastroRepository>();
             services.AddTransient<VwEstruturaBandejaHistRepository,VwEstruturaBandejaHistRepository>();
             services.AddTransient<VwEstruturaContainerHistRepository,VwEstruturaContainerHistRepository>();
+            services.AddTransient<TbLocalizacaoBandejaRepository,TbLocalizacaoBandejaRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

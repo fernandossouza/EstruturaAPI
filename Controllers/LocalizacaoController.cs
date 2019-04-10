@@ -35,5 +35,24 @@ namespace EstruturaAPI.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
+        // GET api/localizacao/bandejas
+        [HttpGet("Bandejas/")]
+        public async Task<IActionResult> GetLocalizacaoBandejas()
+        {
+            try
+            {
+                var bandejaList = await _LocalizacaoService.GetBandeja();
+                
+                if(bandejaList.Count()>0)
+                    return Ok(bandejaList);
+                else
+                    return NotFound();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
 }
